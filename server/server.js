@@ -10,9 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const API_URL = process.env.API_URL;
 
-app.use('/assets', express.static('path_to_fonts_directory'));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.resolve(__dirname, "./dist")));
 
 // Connect to database
 connectDB();
