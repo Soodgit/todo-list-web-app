@@ -17,7 +17,7 @@ const Todo = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/todos');
+      const response = await fetch('https://todo-list-web-app-roan.vercel.app');
       if (!response.ok) throw new Error('Failed to fetch todos');
       const data = await response.json();
       setTodoList(data);
