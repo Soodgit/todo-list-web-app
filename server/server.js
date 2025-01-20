@@ -7,7 +7,7 @@ const errorHandler = require('./middleware/errorHandler');
 
 
 const app = express();
-//const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const API_URL = process.env.API_URL;
 
 // Connect to database
@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/todos', todoRoutes);
+app.use(`${API_URL}/api/todos`, todoRoutes);
 
 // Error Handler
 app.use(errorHandler);
