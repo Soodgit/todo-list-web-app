@@ -7,8 +7,6 @@ export default defineConfig({
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
   },
   server: {
-    headers: {
-      'Content-Type': 'text/javascript'
-    }
+    port: 5001, // optional: set a custom port if needed
   }
 })
