@@ -10,8 +10,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const API_URL = process.env.API_URL;
 
+//public
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import path from "path";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.resolve(__dirname, "./dist")));
+
 
 // Connect to database
 connectDB();
