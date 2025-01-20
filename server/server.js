@@ -5,8 +5,10 @@ const connectDB = require('./config/db');
 const todoRoutes = require('./routes/todoRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+//const PORT = process.env.PORT || 5000;
+const API_URL = process.env.API_URL;
 
 // Connect to database
 connectDB();
