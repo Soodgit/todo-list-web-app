@@ -7,6 +7,8 @@ export default defineConfig({
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
   },
   server: {
-    middlewareMode: true
+    headers: {
+      'Content-Type': 'text/javascript'
+    }
   }
 })
