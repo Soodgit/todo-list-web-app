@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use(`${API_URL}/api/todos`, todoRoutes);
+app.use(`/api/todos`, todoRoutes);
 
 // Error Handler
 app.use(errorHandler);
