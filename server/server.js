@@ -4,7 +4,7 @@ require('dotenv').config();
 const connectDB = require('./config/db');
 const todoRoutes = require('./routes/todoRoutes');
 const errorHandler = require('./middleware/errorHandler');
-const path = require('path'); // Add this line
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,10 +17,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// CSP Headers - Modified to be more permissive
+// CSP Headers
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
@@ -37,9 +34,12 @@ app.use((req, res, next) => {
 // Routes
 app.use(`/api/todos`, todoRoutes);
 
-// Serve your frontend
+// Serve static files from the React/Vue/Angular build directory
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Handle React/Vue/Angular routing, return all requests to the app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, './dist', 'index.html'));
 });
 
 // Error Handler
