@@ -33,7 +33,7 @@ const Todo = () => {
     if (inputText === "") return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/todos', {
+      const response = await fetch('https://todo-list-web-app-3odh.onrender.com/api/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Todo = () => {
 
   const deleteTodo = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const response = await fetch(`https://todo-list-web-app-3odh.onrender.com/api/todos/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete todo');
@@ -64,7 +64,7 @@ const Todo = () => {
   const toggle = async (id) => {
     try {
       const todo = todoList.find(t => t._id === id);
-      const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const response = await fetch(`https://todo-list-web-app-3odh.onrender.com/api/todos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ const Todo = () => {
   const updateTodo = async (id, newText) => {
     try {
       const todo = todoList.find(t => t._id === id);
-      const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const response = await fetch(`https://todo-list-web-app-3odh.onrender.com/api/todos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
